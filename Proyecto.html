@@ -1,95 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>DeviantArt</h1>
-    
-    <header class="cabecera">
-        <div class="logo"></div>
-            <ul class="menu">
-                <li><a href="">Comercio</a></li>
-                <li><a href="">Buscar</a></li>
-                <li><a href="">Arte con IA de Dream Up</a></li>
-                <li><a href="">Unirse</a></li>
-                <li><a href="">Acceso</a></li>
-                <li><button> + Entregar</button></li>
-            </ul>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive para móviles -->
+    <title>DeviantArt Replica</title> 
 
-            <nav class="Barralateral"><p>Hogar</p></nav>
+    <style>
+        body{
+            background-color: black; 
+            margin: 0; 
+            font-family: Arial, Helvetica, sans-serif; /* Tipo de Letra*/
+        }
+        *::selection{
+            background-color: rgb(40, 181, 134);
+        }
+
+        header{
+            background-color: rgb(21, 22, 29); /* Color de fondo del Contenedor */
+            padding: 15px; /* Espacio interno */
+            cursor: pointer; 
+        }
+
+        h1{
+            color: white; /* Color del texto */
+            margin: 0; 
+        }
+        h1:hover{
+            color: aquamarine;
+        }
+
+        nav{
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+            margin-top: 10px; 
+        }
+
+        nav a{
+            font-size: 12px; 
+            color: white; 
+            font-weight: bold; 
+            text-decoration: none; 
+        }
+
+        .Barra{
+            background-color: rgb(36, 36, 52); /* Color de fondo */
+            font-size: 30px; /* Tamaño del texto */
+            color: white; 
+            padding: 30px; 
+            font-weight: bold; 
+            margin-top: auto;
+        }
+        
+
+        .categorias{
+            display: flex; 
+            flex-wrap: wrap; /* Que se ajusten a otra fila si no caben */
+            gap: 15px; /* Espacio entre enlaces */
+            padding: 15px; /* Espacio interno */
+        }
+
+        .categorias a{
+            color: white; /* Color de texto */
+            text-decoration: none; /* Sin subrayado */
+            font-size: 14px; /* Tamaño de letra */
+        }
+        .categorias button{
+            background-color: rgb(38, 38, 39);
+            padding: 12px;
+            font-weight: bold;
+            border-radius: 5px; 
+        }
+
+        section{
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Columnas flexibles */
+            gap: 15px; 
+            padding: 20px; 
+        }
+
+        section img{
+            width: 100%; 
+            height: 200px; /* Altura fija */
+            object-fit: cover; /* Ajusta la imagen sin deformarla */
+            border-radius: 10px; 
+            cursor: pointer; 
+        }
+
+        footer{
+            background-color: white; /* Color de fondo */
+            padding: 5px; /* Espacio interno */
+            color: black; /* Color de texto */
+        }
+
+        footer button{
+            padding: 10px 20px; 
+            color: black; 
+            font-weight: bold; 
+            cursor: pointer; 
+            font-size: 12px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        
+        <nav>
+            <h1 style="font-size: 19px;">DeviantArt</h1>
+            <a href="">Comercio</a>
+            <input type="search" placeholder="Buscar" style="background-color: rgb(0, 0, 0); color: azure; font-weight: bold; padding: 5px 10px; "> 
+            <a href="" style="color: blueviolet;">Arte con IA de Dream Up</a>
+
+            <a href="" style="margin-left: auto;">Unirse</a>
+            <a href="">Acceso</a>
+            <button style="background-color: aquamarine; border-radius: 2px; ">+ Entregar</button>
+        </nav>
     </header>
 
+    <p class="Barra">Hogar</p>
+
     <main>
-        <section>
-            <ul>
-                <li>Todo</li>
-                <li>Cibernetico</li>
-                <li>Arte de IA</li>
-                <li>Arte digital</li>
-                <li>Arte de fan</li>
-                <li>Fotografia</li>
-                <li>Fanatasia</li>
-                <li>Anime y manga</li>
-                <li>Cosplay</li>
-                <li>Adoptables</li>
-                <li>Diseño de personajes</li>
-                <li>Historietas</li>
-                <li>Arte conceptual</li>
-                <li>Arte de juego</li>
-                <li>Ciencia ficcion</li>
-                <li>Superheroes</li>
-                <li>Arte tradicional</li>
-                <li>Arte 3D</li>
-            </ul>
-        </section>
+        <div class="categorias">
+            <button><a href="">Todo</a></button>
+            <button><a href="">Cibernetico</a></button>
+            <button><a href="">Arte de IA</a></button>
+            <button><a href="">Arte digital</a></button>
+            <button><a href="">Arte de fan</a></button>
+            <button><a href="">Fotografia</a></button>
+            <button><a href="">Fantasia</a></button>
+            <button><a href="">Anime y manga</a></button>
+            <button><a href="">Cosplay</a></button>
+            <button><a href="">Adoptables</a></button>
+            <button><a href="">Diseño de personajes</a></button>
+            <button><a href="">Historietas</a></button>
+            <button><a href="">Arte conceptual</a></button>
+            <button><a href="">Arte de juego</a></button>
+            <button><a href="">Ciencia ficcion</a></button>
+            <button><a href="">Superheroes</a></button>
+            <button><a href="">Arte tradicional</a></button>
+            <button><a href="">Arte 3D</a></button>
+        </div>
 
         <section>
-            <div>
-                <figure>
-                    <img src="images/cat.jpg" alt="Img1">
-            </figure>
-        </div>
-            <div>
-                <figure>
-                    <img src="images/drag.jpg" alt="Img2">
-            </figure>
-            </div>
-            <div>
-                <figure>
-                    <img src="images/fenix.jpg" alt="Img3">
-            </figure>
-            </div>
-            <div>
-                <figure>
-                    <img src="images/futuro.jpeg" alt="Img4">
-            </figure>
-            </div>
-            <div>
-                <figure>
-                    <img src="images/creatividad.jpeg" alt="Img5">
-            </figure>
-            </div>
-            <div>
-                <figure>
-                    <img src="images/desarrollo.jpeg" alt="Img6">
-            </figure>
-            </div>
-            <div>
-                <figure>
-                    <img src="images/imag.jpg" alt="Img7">
-            </figure>
-            </div>
+            <img src="images/cat.jpg" alt="Img1">
+            <img src="images/drag.jpg" alt="Img2">
+            <img src="images/fenix.jpg" alt="Img3">
+            <img src="images/futuro.jpeg" alt="Img4">
+            <img src="images/creatividad.jpeg" alt="Img5">
+            <img src="images/desarrollo.jpeg" alt="Img6">
+            <img src="images/imag.jpg" alt="Img7">
         </section>
     </main>
 
-    <footer class="piedepagina">
+    <footer>
         <p>Únase a la comunidad de arte más grande del mundo y obtenga recomendaciones de arte personalizadas.</p>
         <button>Acceso</button>
         <button>Unirse</button>
     </footer>
-
 </body>
 </html>
