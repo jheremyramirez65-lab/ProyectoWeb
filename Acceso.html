@@ -1,75 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DeviantArt - Acceso</title>
     <style>
-        body{
-            background-image: url(images/fondo.jpeg);
+        body {
+            background-image: url("images/fondo.jpeg");
+            background-position: center;
+            margin: 0;
+            padding: 0;
             display: flex;
-            gap: 5px;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 15px;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            margin-left: 18%;
+            margin-right: 18%;
         }
-        header{
+
+        header {
             color: white;
-            background-color: black;
+            background-color: rgba(0, 0, 0, 0.85);
             padding: 30px;
-            width: 50%;
-            margin-left: 20%;
-            margin-top: 0%;
-            margin-bottom: 0;
+            width: 40%;
+            border-radius: 10px;
         }
-        main{
+
+        main {
             background-color: white;
-            width: 50%;
-            margin-right: 20%;
+            width: 40%;
             padding: 30px;
-            margin-bottom: 0;
+            border-radius: 10px;
         }
-        h3{
+
+        h1 {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 55px;
+        }
+
+        h3 {
             font-weight: lighter;
             font-size: 15px;
         }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 10px;
+            border-radius: 5px;
+            border: 1px solid #aaa;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            
+            color: rgb(0, 0, 0);
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        button:hover {
+            opacity: 0.4;
+            background-color: rgb(108, 108, 178);
+
+        }
+
+        nav button {
+            margin: 8px 0;
+            border-color: #333;
+        }
+
+        a {
+            color: #333;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        p { margin: 8px 0; }
     </style>
 </head>
 <body>
     <header>
         <h2 style="font-size: 19px;">DeviantArt</h2>
-        <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">ÚNETE A LA COMUNIDAD ARTÍSTICA MÁS GRANDE DEL MUNDO</h1>
-        <h3>Explora y descubre arte, conviértete en un mejor artista,
-             conéctate con otros a través de pasatiempos mutuos o 
-             compra y vende obras: puedes hacerlo todo aquí.</h3>
-             <h3>ARTE POR</h3>
-             <a href="">ekud</a>
+        <h1>ÚNETE A LA COMUNIDAD ARTÍSTICA MÁS GRANDE DEL MUNDO</h1>
+        <h3>Explora y descubre arte, conviértete en un mejor artista, conéctate con otros a través de pasatiempos mutuos o compra y vende obras: puedes hacerlo todo aquí.</h3>
+        <h3>ARTE POR</h3>
+        <a href="#">ekud</a>
     </header>
+
     <main>
-        <h2>Acceso</h2>
+        <h2 style="font-weight: bold; font-size: 30px;">Acceso</h2>
         <br>
-        <p>Nombre de usuario</p>
-        <input type="text" name="name" id="">
-        <input type="checkbox" name="" id="">
-        <p>Mantenme conectado</p>
-        <a href="">¿Olvidó su nombre de usuario o contraseña?</a>
-        <button>Próximo</button>
-        <p>------------o------------</p>
+        <br>
+        <br>
+        <label style="font-weight: bold;">Nombre de usuario</label>
+        <input type="text" name="name" />
+        <br>
+        <br>
+        <br>
+
+        <label>
+            <input type="checkbox" /> Mantenme conectado
+        </label>
+
+        <p><a href="#">¿Olvidó su nombre de usuario o contraseña?</a></p>
+
+        <button style="background-color: #38ddbc;">Próximo</button>
+
+        <p style="text-align:center;">------------ o ------------</p>
+
         <nav>
-            <button>
-                Continuar con Google
-            </button>
-            <button>
-                Continuar con Apple
-            </button>
-            <button>
-                Continuar con Facebook
-            </button>
+            <button>Continuar con Google</button>
+            <button>Continuar con Apple</button>
+            <button>Continuar con Facebook</button>
         </nav>
-        <p>Conviértete en un Deviant Únete a </p>
-        <a href="">DeviantArt</a>
-        <p>Al iniciar sesión en DeviantArt, confirmo que he leído y acepto los</p>
-        <a href="">Términos de servicio</a>
-        <p>de DeviantArt, </p>
-        <a href="">la Politica de privacidad</a>
-        <p>y recibir correos electrónicos y actualizaciones.</p>
+
+        <p>Conviértete en un Deviant. Únete a <a href="#">DeviantArt</a></p>
+
+        <p>Al iniciar sesión en DeviantArt, confirmo que he leído y acepto los <a href="#">Términos de servicio</a>,
+        <a href="#">la Política de privacidad</a> y recibir correos electrónicos y actualizaciones.</p>
+        <p></p>
     </main>
 </body>
 </html>
