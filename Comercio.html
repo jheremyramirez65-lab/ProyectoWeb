@@ -1,123 +1,190 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DeviantArt</title>
     <style>
-        body{
-            background-color: black; 
-            margin: 0; 
-            font-family: Arial, Helvetica, sans-serif; /* Tipo de Letra*/
+        body {
+            background-color: black;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
         }
-        *::selection{
+
+        *::selection {
             background-color: rgb(40, 181, 134);
         }
 
-        header{
-            background-color: rgb(21, 22, 29); /* Color de fondo del Contenedor */
-            padding: 15px; /* Espacio interno */
-            cursor: pointer; 
+        header {
+            background-color: rgb(21, 22, 29);
+            padding: 10px;
         }
 
-        h1{
-            color: white; /* Color del texto */
-            margin: 0; 
+        h1 {
+            margin: 0;
+            font-size: 19px;
+            cursor: pointer;
         }
-        h1:hover{
+
+        h1:hover {
             color: aquamarine;
         }
 
-        nav{
-            display: flex; 
-            align-items: center; 
-            gap: 15px; 
-            margin-top: 10px; 
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
-        nav a{
-            font-size: 12px; 
-            color: white; 
-            font-weight: bold; 
-            text-decoration: none; 
+        nav a {
+            font-size: 12px;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        input[type="search"] {
+            padding: 5px;
+            width: 200px;
+            border-radius: 4px;
+            border: none;
+        }
+
+        main {
+            background-image: url("images/fondo2.jpeg");
+            padding: 20px;
+            font-weight: bold;
+        }
+
+        main nav {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            cursor: pointer;
+            color: white;
+            background-color: rgb(45, 45, 45);
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .Buscar {
+            background-color: blueviolet;
+        }
+
+        article {
+            padding: 20px;
+            background-color: rgb(41, 39, 67);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        article a {
+            text-decoration: none;
+            color: white;
+            opacity: 0.8;
+            font-size: 13px;
+        }
+
+        .barra {
+            padding: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .barra button {
+            padding: 5px 10px;
+        }
+
+        aside {
+            margin-top: 20px;
+        }
+
+        aside h2 {
+            margin: 5px 0;
+        }
+
+        footer {
+            background-color: rgb(21, 22, 29);
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        footer button {
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <h1 style="font-size: 19px;">DeviantArt</h1>
+            <h1>DeviantArt</h1>
             <a href="Comercio.html">Comercio</a>
-            <input type="search" placeholder="Buscar" style="background-color: rgb(0, 0, 0); color: azure; font-weight: bold; padding: 5px 10px; "> 
-            <a href="" style="color: blueviolet;">Arte con IA de Dream Up</a>
-
-            <a href="" style="margin-left: auto;">Unirse</a>
+            <input type="search" placeholder="Buscar">
+            <a href="#">Arte con IA de Dream Up</a>
+            <a href="#" style="margin-left:auto;">Unirse</a>
             <a href="Acceso.html">Acceso</a>
-            <button style="background-color: aquamarine; border-radius: 2px; ">+ Entregar</button>
+            <button style="background-color: aquamarine; color:black;">+ Entregar</button>
         </nav>
     </header>
+
     <main>
         <h2>Compra arte de los creadores que te encantan</h2>
-        <nav><input type="search" name="" id="" placeholder="Buscar en la tienda de DeviantArt(por ejemplo, 'retrato')"><button>Buscar</button></nav>
+        <nav>
+            <input type="search" placeholder="Buscar en la tienda de DeviantArt">
+            <button class="Buscar">Buscar</button>
+        </nav>
     </main>
+
     <article>
-        <div><a href="">Vende tu arte</a> <a href="">Exclusivas</a> <a href="">Descargas premium</a> <a href="">Suscripciones</a></div>
+        <a href="#">Vende tu arte</a>
+        <a href="#">Exclusivas</a>
+        <a href="#">Descargas premium</a>
+        <a href="#">Suscripciones</a>
     </article>
+
     <section>
         <h3>Explorar tiendas destacadas</h3>
-        <p>Vea el arte popular que venden otros artistas</p>
-
-
-        <div><h2>Explora etiquetas populares para saber qué quieren los compradores</h2> 
-        <button>Diseño de personajes</button>
-        <button>Belleza</button>
-        <button>Adoptables</button>
-        <button>Especies cerradas</button>
-        <button>Mas alla de la eternidad</button>
-        <button>Elfos</button>
-        <button>Reinos mágicos</button>
-        <button>Guerreros</button>
+        <p style="font-size:12px;">Vea el arte popular que venden otros artistas</p>
+        <div class="barra">
+            <button>Diseño de personajes</button>
+            <button>Belleza</button>
+            <button>Adoptables</button>
+            <button>Especies cerradas</button>
+            <button>Más allá de la eternidad</button>
+            <button>Elfos</button>
+            <button>Reinos mágicos</button>
+            <button>Guerreros</button>
         </div>
-
         <aside>
             <p>Encuentra tu audiencia en la comunidad de arte en línea más grande del mundo</p>
-            <p><h2>18 millones</h2>Usuarios activos anuales</p>
-            <p><h2>100 millones</h2>Visitantes únicos por mes</p>
-            <p><h2>84 millones</h2>Usuarios registrados</p>
+            <h2>18 millones</h2>
+            <p>Usuarios activos anuales</p>
+            <h2>100 millones</h2>
+            <p>Visitantes únicos por mes</p>
+            <h2>84 millones</h2>
+            <p>Usuarios registrados</p>
         </aside>
-        <footer>
-            <h2>DreamUp y gana en grande con IA</h2>
-            <p>Crea y vende arte generado por IA con DreamUp.</p>
-            <button>Crea con DreamUp</button>
-            <div class="imag"></div>
-        </footer>
     </section>
 
     <footer>
-        <a href="Proyecto.html" style="font-size: 19px;">DeviantArt</a>
-
-        <nav>
-            <a href="">Acerca de</a>
-            <a href="">Desarrolladores</a>
-            <a href="">Condiciones de servicio</a>
-            <a href="">Contacto</a>
-            <a href="">Anunciar</a>
-            <a href="">Politica de derechos de autor</a>
-            <a href="">Membresia básica</a>
-            <a href="">Carreras</a>
-            <a href="">Politica de privacidad</a>
-            <a href="">Vende tu arte</a>
-            <a href="">Centro de ayuda</a>
-            <a href="">Etiqueta</a>
-        </nav>
-        <p>Mire <a href="">al equipo</a> y únase a nuestro grupo <a href="">para conocer las últimas actualizaciones y actividades.
-            <button>Equipo de vigilancia</button>
-            <button>Únete a la comunidad</button>
-        </p>
-
-        ©2025 DeviantArt
-        Reservados todos los derechos
+        <h2>DreamUp y gana en grande con IA</h2>
+        <p>Crea y vende arte generado por IA con DreamUp.</p>
+        <button>Crea con DreamUp</button>
+        <p>©2025 DeviantArt. Reservados todos los derechos.</p>
     </footer>
-    
 </body>
 </html>
