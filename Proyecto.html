@@ -2,162 +2,166 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive para móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DeviantArt Replica</title> 
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
     <style>
         body{
-            background-color: black; 
-            margin: 0; 
-            font-family: Arial, Helvetica, sans-serif; /* Tipo de Letra*/
+            background-color: black;
+            font-family: Arial, Helvetica, sans-serif;
         }
+
         *::selection{
             background-color: rgb(40, 181, 134);
         }
 
-        header{
-            background-color: rgb(21, 22, 29); /* Color de fondo del Contenedor */
-            padding: 15px; /* Espacio interno */
-            cursor: pointer; 
-        }
-        
-        h1{
-            color: white; /* Color del texto */
-            margin: 0; 
-        }
-        h1:hover{
-            color: aquamarine;
-        }
-
-        nav{
-            display: flex; 
-            align-items: center; 
-            gap: 15px; 
-            margin-top: 10px; 
-        }
-
-        nav a{
-            font-size: 12px; 
-            color: white; 
-            font-weight: bold; 
-            text-decoration: none; 
-        }
-
         .Barra{
-            background-color: rgb(36, 36, 52); /* Color de fondo */
-            font-size: 30px; /* Tamaño del texto */
-            color: white; 
-            padding: 30px; 
-            font-weight: bold; 
-            margin-top: auto;
-        }
-        
-        .categorias{
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 15px; 
-            padding: 15px; 
+            background-color: rgb(36, 36, 52);
+            font-size: 30px;
+            color: white;
+            padding: 25px;
+            font-weight: bold;
         }
 
-        .categorias a{
-            color: white; 
-            text-decoration: none; 
-            font-size: 14px; 
+        .categorias{
+        display: flex;
+        align-items: center;
+        background-color: rgb(23, 23, 23);
+        padding: 10px;
+        display: flex;
+        overflow-x: auto;
         }
-        .categorias button{
-            background-color: rgb(38, 38, 39);
-            padding: 12px;
-            font-weight: bold;
-            border-radius: 5px; 
+
+        .categorias button {
+        background-color: rgb(38, 38, 39);
+        color: white;
+        padding: 10px 15px;
+        font-size: 12px;
+        font-weight: bold;
+        border-radius: 6px;
+        margin-right: 10px;
+        white-space: nowrap; /* evita que se rompa el texto */
+        cursor: pointer;
         }
+
+        
+
 
         section{
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Columnas flexibles */
-            gap: 15px; 
-            padding: 20px; 
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 20px;
         }
 
         section img{
-            width: 100%; 
-            height: 200px; 
-            object-fit: cover; 
-            border-radius: 10px; 
-            cursor: pointer; 
-        }
-
-        footer{
-            background-color: white; 
-            padding: 5px; 
-            color: black; 
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
         }
 
         footer button{
-            padding: 10px 20px; 
-            color: black; 
-            font-weight: bold; 
-            cursor: pointer; 
+            padding: 10px 20px;
             font-size: 12px;
+            font-weight: bold;
+            border: none;
         }
-
     </style>
 </head>
 
-<body>
-    <header>
-        <nav>
-            <h1 style="font-size: 19px;">
-            <img src="logo-Isotipo/Isotipo.jpeg" alt="Logo" style="width:30px; height:30px; vertical-align: middle; margin-right:5px;">DeviantArt
-            </h1>
+<body class="navbar-expand-lg">
 
-            <a href="Comercio.html">Comercio</a>
-            <input type="search" placeholder="Buscar" style="background-color: rgb(0, 0, 0); color: azure; font-weight: bold; padding: 5px 10px; "> 
-            <a href="" style="color: blueviolet;">Arte con IA de Dream Up</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+    <div class="container">
 
-            <a href="" style="margin-left: auto;">Unirse</a>
-            <a href="Acceso.html">Acceso</a>
-            <button style="background-color: aquamarine; border-radius: 2px; ">+ Entregar</button>
-        </nav>
-    </header>
+        <a href="Proyecto.html" class="navbar-brand d-flex align-items-center text-white fw-bold">
+            <img src="logo-Isotipo/Isotipo.jpeg" alt="Logo" 
+                 style="width:30px; height:30px; margin-right:5px;">
+            DeviantArt
+        </a>
+        <input type="search" placeholder="Buscar" 
+                   class="form-control ms-3 text-white"
+                   style="max-width:200px; background-color:rgb(0,0,0);">
+
+        <!-- BOTÓN HAMBURGUESA CORREGIDO -->
+        <button class="navbar-toggler" 
+                type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Boton hamburguesa">
+
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- MENÚ DESPLEGABLE -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a href="Proyecto.html" class="nav-link text-secondary">Hogar</a></li>
+                <li class="nav-item"><a href="Comercio.html" class="nav-link text-secondary">Comercio</a></li>
+                <li><a href="DreamUp.html" class="nav-link text-primary ms-3">Arte con IA de Dream Up</a></li>
+                <li><div class="ms-auto d-flex align-items-center gap-3">
+                <button class="btn btn-success">+ Entregar</button>
+                </div></li>
+            </ul>            
+        </div>
+        
+    </div>
+</nav>
+
 
     <p class="Barra">Hogar</p>
 
-    <main>
-        <div class="categorias">
-            <button><a href="">Todo</a></button>
-            <button><a href="">Cibernetico</a></button>
-            <button><a href="">Arte de IA</a></button>
-            <button><a href="">Arte digital</a></button>
-            <button><a href="">Arte de fan</a></button>
-            <button><a href="">Fotografia</a></button>
-            <button><a href="">Fantasia</a></button>
-            <button><a href="">Anime y manga</a></button>
-            <button><a href="">Cosplay</a></button>
-            <button><a href="">Adoptables</a></button>
-            <button><a href="">Diseño de personajes</a></button>
-            <button><a href="">Historietas</a></button>
-            <button><a href="">Arte conceptual</a></button>
-            <button><a href="">Arte de juego</a></button>
-            <button><a href="">Ciencia ficcion</a></button>
-            <button><a href="">Superheroes</a></button>
-            <button><a href="">Arte tradicional</a></button>
-            <button><a href="">Arte 3D</a></button>
-        </div>
+    <div class="categorias">
+        <button>Todo</button>
+        <button>Cibernetico</button>
+        <button>Arte de IA</button>
+        <button>Arte digital</button>
+        <button>Arte de fan</button>
+        <button>Fotografia</button>
+        <button>Fantasia</button>
+        <button>Anime y manga</button>
+        <button>Cosplay</button>
+        <button>Adoptables</button>
+        <button>Diseño de personajes</button>
+        <button>Historietas</button>
+        <button>Arte conceptual</button>
+        <button>Arte de juego</button>
+        <button>Ciencia ficcion</button>
+        <button>Superheroes</button>
+        <button>Arte tradicional</button>
+        <button>Arte 3D</button>
+    </div>
 
-        <section>
-            <img src="images/cat.jpg" alt="Img1">
-            <img src="images/drag.jpg" alt="Img2">
-            <img src="images/fenix.jpg" alt="Img3">
-            <img src="images/futuro.jpeg" alt="Img4">
-            <img src="images/creatividad.jpeg" alt="Img5">
-            <img src="images/desarrollo.jpeg" alt="Img6">
-            <img src="images/imag.jpg" alt="Img7">
-        </section>
-    </main>
 
-    <footer>
-        <p>Únase a la comunidad de arte más grande del mundo y obtenga recomendaciones de arte personalizadas.</p>
-        <a href="Acceso.html"><button >Acceso</button></a>
-        <button>Unirse</button>
+    <section>
+        <img src="images/cat.jpg" alt="Img1">
+        <img src="images/drag.jpg" alt="Img2">
+        <img src="images/fenix.jpg" alt="Img3">
+        <img src="images/futuro.jpeg" alt="Img4">
+        <img src="images/creatividad.jpeg" alt="Img5">
+        <img src="images/desarrollo.jpeg" alt="Img6">
+        <img src="images/imag.jpg" alt="Img7">
+    </section>
+
+    <footer class="navbar sticky-bottom bg-light text-dark text-center p-3">
+        <p>Únase a la comunidad de arte más grande del mundo y obtenga recomendaciones personalizadas.</p>
+        <a href="Acceso.html"><button class="btn btn-outline-dark">Acceso</button></a>
+        <a href="Unete.html"><button class="btn btn-dark" onclick="">Unirse</button></a>
+        
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-QFzAjt6nRv7VvzJeY9qYapqYh6gMPkTFogyXv3gZHMOXgCX8F3E2vHOMYqUTyVJ8"
+    crossorigin="anonymous"></script>
+
 </body>
 </html>
