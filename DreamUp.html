@@ -9,71 +9,78 @@
         body{
             background-color: black; 
             margin: 0; 
-            font-family: Arial, Helvetica, sans-serif; /* Tipo de Letra*/
+            font-family: Arial, Helvetica, sans-serif; 
             color: white;
         }
         *::selection{
             background-color: rgb(40, 181, 134);
         }
+        header {
+            background-color: rgb(21, 22, 29);
+            padding: 15px;
+            cursor: pointer;
+        }
 
-        header{
-            background-color: rgb(21, 22, 29); /* Color de fondo del Contenedor */
-            padding: 15px; /* Espacio interno */
-            cursor: pointer; 
+        h1 {
+            color: white;
+            margin: 0;
         }
-        
-        h1{
-            color: white; /* Color del texto */
-            margin: 0; 
-        }
-        h1:hover{
+
+        h1:hover {
             color: aquamarine;
         }
 
-        nav{
-            display: flex; 
-            align-items: center; 
-            gap: 15px; 
-            margin-top: 10px; 
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
         }
 
-        nav a{
-            font-size: 12px; 
-            color: white; 
-            font-weight: bold; 
-            text-decoration: none; 
+        nav a {
+            font-size: 12px;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
         }
-        .img{
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
-            gap: 15px; 
+
+        .img {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 15px;
         }
-        div img{
-            width: 100%; 
-            height: 200px; 
-            object-fit: cover; 
-            border-radius: 10px; 
-            cursor: pointer; 
+
+        div img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
         }
-        main{
+
+        main {
             background-color: rgb(29, 22, 36);
             display: grid;
             justify-items: center;
             font-weight: bold;
         }
-        .Buscar{
+
+        .Buscar {
             padding: 8px;
             background-color: rgb(76, 27, 182);
             color: white;
         }
-        .search{
+
+        .search {
             font-size: 24px;
         }
-        .contenedor{
+
+        .contenedor {
             background-color: rgb(23, 23, 23);
             padding: 10px;
         }
-        .contenedor button{
+
+        .contenedor button {
             background-color: rgb(38, 38, 39);
             color: white;
             padding: 10px 15px;
@@ -85,38 +92,45 @@
             white-space: nowrap;
             cursor: pointer;
         }
-        .barralatbaja{
+
+        .barralatbaja {
             padding: 60px;
         }
+
         section {
             padding: 20px;
             justify-items: center;
         }
-        footer{
+
+        footer {
             padding: 20px;
             justify-items: center;
         }
-        button{
+
+        button {
             background-color: rgb(61, 32, 165);
             color: white;
         }
-        .barra3{
+
+        .barra3 {
             padding: 30px;
             background-color: rgb(18, 14, 25);
         }
-        .barra4{
+
+        .barra4 {
             padding: 30px;
             background-color: rgb(14, 14, 25);
         }
+
     </style>
 </head>
 <body>
     <header>
         <nav>
             <h1 style="font-size: 19px;">
-            <img src="logo-Abstracto/Logo-Abstracto.jpeg" alt="Logo" style="width:30px; height:30px; vertical-align: middle; margin-right:5px;"><a href="Proyecto.html">DeviantArt</a>
+                <img src="logo-Abstracto/Logo-Abstracto.jpeg" alt="Logo" style="width:30px; height:30px; vertical-align: middle; margin-right:5px;">
+                <a href="Proyecto.html">DeviantArt</a>
             </h1>
-
             <a href="" style="margin-left: auto;">Unirse</a>
             <a href="Acceso.html">Acceso</a>
         </nav>
@@ -124,38 +138,30 @@
     <main>
         <h1>Crea arte generado por IA con</h1>
         <p>DreamUp</p>
-        <p style="font-size: 10px; justify-content: center;">DreamUp™ es un generador de imágenes
-             que te ayuda a crear impresionantes
-              obras de arte de alta calidad en 
-              segundos con el poder de la 
-              inteligencia artificial.</p>
-        <p> <input type="search" placeholder="Introduzca una solicitud detallada..." class="search">
-            <button class="Buscar">Empieza a crear</button></p>
-       
-            <p class="contenedor">
-                <button>Sueña</button>
-                <button>Anime</button>
-                <button>Antropologia</button>
-                <button>Fotografico</button>
-                <button>Fantasia</button>
-                <button>Onda de Vapor</button>
-                <button>Origami</button>
-                <button>Arte literal</button>
-                <button>Arcilla</button>
-                <button>Cinematografico</button>
-                <button>Modelo 3D</button>
-                <button>Arte de pixeles</button>
-            </p>
-            
-            <p style="color: rgb(70, 40, 130);">Crea hasta 30 imágenes GRATIS usando 10 indicaciones por semana.</p>
+        <p style="font-size: 10px; justify-content: center;">DreamUp™ es un generador de imágenes que te ayuda a crear impresionantes obras de arte de alta calidad en segundos con el poder de la inteligencia artificial.</p>
+        <p> 
+            <input type="search" placeholder="Introduzca una solicitud detallada..." class="search" id="inputSearch">
+            <button class="Buscar" id="btnBuscar">Empieza a crear</button>
+        </p>
+        <p class="contenedor" id="contenedorBotones">
+            <button id="btnSueña">Sueña</button>
+            <button id="btnAnime">Anime</button>
+            <button id="btnAntropologia">Antropologia</button>
+            <button id="btnFotografico">Fotografico</button>
+            <button id="btnFantasia">Fantasia</button>
+            <button id="btnOnda">Onda de Vapor</button>
+            <button id="btnOrigami">Origami</button>
+            <button id="btnLiteral">Arte literal</button>
+            <button id="btnArcilla">Arcilla</button>
+            <button id="btnCinematografico">Cinematografico</button>
+            <button id="btnModelo3D">Modelo 3D</button>
+            <button id="btnPixeles">Arte de pixeles</button>
+        </p>
+        <p style="color: rgb(70, 40, 130);">Crea hasta 30 imágenes GRATIS usando 10 indicaciones por semana.</p>
     </main>
     <section>
         <h2>Conéctate con la comunidad artística de DreamUp AI</h2>
-        <p>Únase a una comunidad de millones de artistas y 
-            entusiastas de la IA, comparta sus obras de 
-            arte y conéctese con un mundo de creadores 
-            con ideas afines.
-        </p>
+        <p>Únase a una comunidad de millones de artistas y entusiastas de la IA, comparta sus obras de arte y conéctese con un mundo de creadores con ideas afines.</p>
         <div class="img">
             <img src="images/cat.jpg" alt="Img1">
             <img src="images/drag.jpg" alt="Img2">
@@ -169,101 +175,74 @@
             <img src="https://picsum.photos/200/200?random=10" alt="Img10">
             <img src="https://picsum.photos/200/200?random=11" alt="Img11">
             <img src="https://picsum.photos/200/200?random=12" alt="Img12">
-            </div>
+        </div>
         <button style="margin-left: 30%;">Explora las creaciones de DreamUp</button>
-        
     </section>
     <footer>
         <div class="barralatbaja">
             <h2 style="font-weight: bold; justify-items: center;">Cómo crear arte con IA</h2>
             <ol>
-            <li>Escribe tu mensaje</li>
-            <p>¡Cuanto más detalles agregues, mejores serán tus resultados!</p>
-            <li>Seleccione un estilo visual</li>
-            <p>¡Genera imágenes de IA en estilo anime, 3D, cinematográfico y más!</p>
-            <li>Elija una relación de aspecto, una intensidad
-                 de mensaje o un mensaje negativo
-            </li>
-            <p>Perfecciona tu arte generado por IA</p>
-            <li>Haga clic en "Crear" para generar hasta 4 imágenes de IA</li>
-            <p>Elige qué imagen generada coincide con tu visión</p>
-            <li>Enviar a DeviantArt</li>
-            <p>Comparte o vende tu arte imaginativo de IA con el mundo.</p>
-        </ol>
-        <button>Empieza gratis</button>
+                <li>Escribe tu mensaje</li>
+                <p>¡Cuanto más detalles agregues, mejores serán tus resultados!</p>
+                <li>Seleccione un estilo visual</li>
+                <p>¡Genera imágenes de IA en estilo anime, 3D, cinematográfico y más!</p>
+                <li>Elija una relación de aspecto, una intensidad de mensaje o un mensaje negativo</li>
+                <p>Perfecciona tu arte generado por IA</p>
+                <li>Haga clic en "Crear" para generar hasta 4 imágenes de IA</li>
+                <p>Elige qué imagen generada coincide con tu visión</p>
+                <li>Enviar a DeviantArt</li>
+                <p>Comparte o vende tu arte imaginativo de IA con el mundo.</p>
+            </ol>
+            <button>Empieza gratis</button>
         </div>
-        
         <div class="barra3">
             <h2>Decide cómo se utiliza tu arte con DreamUp</h2>
             <ul>
-                <li>Reciba crédito si su estilo artístico 
-                    se utiliza como inspiración en imágenes
-                     generadas por DreamUp.
-                </li>
-                <li>
-                    Determina si se pueden generar o no 
-                    imágenes de IA en tu estilo usando DreamUp.
-                </li>
+                <li>Reciba crédito si su estilo artístico se utiliza como inspiración en imágenes generadas por DreamUp.</li>
+                <li>Determina si se pueden generar o no imágenes de IA en tu estilo usando DreamUp.</li>
             </ul>
             <button>Empieza gratis</button>
         </div>
-
-
         <div class="barra4">
-            <h2>Preguntas frecuentes sobre DreamUp</h1>
-
-        <details>
-            <summary>¿Cómo funciona DreamUp?</summary>
-            <p>DreamUp es un generador de arte con inteligencia artificial que utiliza los últimos avances en inteligencia artificial para generar imágenes basadas en indicaciones de texto.
-            En DeviantArt, creemos que los creadores deben decidir cómo se puede usar su arte. Con DreamUp, tú tienes el control:
-            Usted elige si desea permitir o no que los modelos y plataformas de IA externos se entrenen en función de sus desviaciones.
-            Puedes  solicitar que no se  generen imágenes de IA en tu estilo usando DreamUp.
-            Se le acreditará claramente en las imágenes generadas por DreamUp publicadas en DeviantArt si su estilo se utiliza como inspiración.
-            Las imágenes generadas se guardan en DreamUp y en tu Studio, y puedes acceder a ellas o enviarlas como desviaciones en cualquier momento. El producto se basa en tecnología de terceros (Difusión Estable). Más información aquí .</p>
-            </summary>
-        </details>
-        <details>
-            <summary>¿Qué tipo de imágenes puedo generar en DreamUp?</summary>
-            <p>DreamUp te permite crear casi cualquier cosa que imagines,
-                 pero sé respetuoso. Como plataforma artística líder,
-                  es nuestra responsabilidad manifestarnos con firmeza
-                  contra el contenido inapropiado, tal como se define
-                   a continuación, con la esperanza de que otros generadores
-                    de contenido con IA adopten y aprueben nuestra postura 
-                    como estándar de la industria.
-            </p>
-        </details>
-        <details>
-            <summary>¿Cómo empiezo a utilizar DreamUp?</summary>
-            <p>
-                Siga estos tres sencillos pasos para comenzar a generar arte con DreamUp:
-                En DreamUp , ingrese un mensaje, brindando tantos detalles como sea posible sobre el tema, el estilo, los colores y el fondo.
-                Haga clic en “Crear”.
-                Haga clic en el menú de tres puntos de sus favoritos y seleccione "Enviar como desviación".
-            </p>
-        </details>
+            <h2>Preguntas frecuentes sobre DreamUp</h2>
+            <details>
+                <summary>¿Cómo funciona DreamUp?</summary>
+                <p>DreamUp es un generador de arte con inteligencia artificial...</p>
+            </details>
+            <details>
+                <summary>¿Qué tipo de imágenes puedo generar en DreamUp?</summary>
+                <p>DreamUp te permite crear casi cualquier cosa que imagines...</p>
+            </details>
+            <details>
+                <summary>¿Cómo empiezo a utilizar DreamUp?</summary>
+                <p>Siga estos tres sencillos pasos para comenzar a generar arte con DreamUp...</p>
+            </details>
         </div>
-        
-
         <p style="justify-items: center; font-size: 10px;">©2024 DeviantArt Todos los derechos reservados</p>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function(){
-        const botones = document.querySelectorAll(".contenedor button");
+            const btnBuscar = document.getElementById("btnBuscar");
+            const inputSearch = document.getElementById("inputSearch");
+            btnBuscar.addEventListener("click", function(){
+                alert("Generando arte con IA: " + inputSearch.value);
+            });
 
-        botones.forEach(boton => {
-        boton.addEventListener("click", () => {
-            alert(`Has seleccionado el estilo: ${boton.textContent}`);
-        });
-        });
+            const botones = [
+                "btnSueña", "btnAnime", "btnAntropologia", "btnFotografico",
+                "btnFantasia", "btnOnda", "btnOrigami", "btnLiteral",
+                "btnArcilla", "btnCinematografico", "btnModelo3D", "btnPixeles"
+            ];
 
-        const botonCrear = document.querySelector(".Buscar");
-        botonCrear.addEventListener("click", () => {
-        const input = document.querySelector(".search");
-        alert(`Generando arte con IA: ${input.value}`);
-        });
+            botones.forEach(id => {
+                const boton = document.getElementById(id);
+                boton.addEventListener("click", function(){
+                    alert("Has seleccionado el estilo: " + boton.textContent);
+                });
+            });
         });
     </script>
 </body>

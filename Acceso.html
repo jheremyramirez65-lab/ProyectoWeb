@@ -25,13 +25,13 @@
             color: white;
             background-color: rgba(0, 0, 0, 0.85);
             padding: 30px;
-            width: 40%;
+            width: 70%;
             border-radius: 10px;
         }
 
         main {
             background-color: white;
-            width: 40%;
+            width: 60%;
             padding: 30px;
             border-radius: 10px;
         }
@@ -59,7 +59,6 @@
             padding: 10px;
             margin-top: 10px;
             border: none;
-            
             color: rgb(0, 0, 0);
             border-radius: 5px;
             cursor: pointer;
@@ -69,7 +68,6 @@
         button:hover {
             opacity: 0.4;
             background-color: rgb(108, 108, 178);
-
         }
 
         nav button {
@@ -77,13 +75,8 @@
             border-color: #333;
         }
 
-        a {
-            color: #333;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
+        a { color: #333; }
+        a:hover { text-decoration: underline; }
 
         p { margin: 8px 0; }
     </style>
@@ -92,7 +85,7 @@
     <header>
         <h1 style="font-size: 25px;">
             <img src="logo-Abstracto/Logo-Abstracto.jpeg" alt="Logo" style="width:30px; height:30px; vertical-align: middle; margin-right:5px;">DeviantArt
-            </h1>
+        </h1>
         <h1>ÚNETE A LA COMUNIDAD ARTÍSTICA MÁS GRANDE DEL MUNDO</h1>
         <h3>Explora y descubre arte, conviértete en un mejor artista, conéctate con otros a través de pasatiempos mutuos o compra y vende obras: puedes hacerlo todo aquí.</h3>
         <h3>ARTE POR</h3>
@@ -101,14 +94,10 @@
 
     <main>
         <h2 style="font-weight: bold; font-size: 30px;">Acceso</h2>
-        <br>
-        <br>
-        <br>
+        <br><br><br>
         <label style="font-weight: bold;">Nombre de usuario</label>
-        <input type="text" name="name" />
-        <br>
-        <br>
-        <br>
+        <input type="text" name="name" id="inputUsuario" />
+        <br><br><br>
 
         <label>
             <input type="checkbox" /> Mantenme conectado
@@ -116,7 +105,7 @@
 
         <p><a href="">¿Olvidó su nombre de usuario o contraseña?</a></p>
 
-        <button style="background-color: #38ddbc;">Próximo</button>
+        <button style="background-color: #38ddbc;" id="btnAcceso">Próximo</button>
 
         <p style="text-align:center;">------------ o ------------</p>
 
@@ -130,24 +119,39 @@
 
         <p>Al iniciar sesión en DeviantArt, confirmo que he leído y acepto los <a href="#">Términos de servicio</a>,
         <a href="">la Política de privacidad</a> y recibir correos electrónicos y actualizaciones.</p>
-        
     </main>
     <footer></footer>
 
-
     <script>
     document.addEventListener("DOMContentLoaded", function(){
-    const boton = document.querySelector("main button");
-    const input = document.querySelector('input[name="name"]');
+        const boton = document.getElementById("btnAcceso");
+        const input = document.getElementById("inputUsuario");
 
-    boton.addEventListener("click", function(){
-        if(input.value.trim() === ""){
-            alert("Por favor ingresa tu nombre de usuario");
-        } else {
-            alert(`¡Bienvenido, ${input.value}!`);
-            // Aquí podrías redirigir: window.location.href = "Proyecto.html";
+        const nombresProhibidos = ["admin", "root", "usuario", "test", "inapropiado"];
+
+        boton.addEventListener("click", function(){
+            const usuario = input.value.trim();
+            const regex = /^[A-Za-z]{5,8}$/;
+
+            if(usuario === ""){
+                alert("Por favor ingresa tu nombre de usuario");
+            }
+            else if(!regex.test(usuario)){
+                alert("El nombre de usuario debe tener solo letras y máximo 8 caracteres");
+            }
+            else if(nombresProhibidos.includes(usuario.toLowerCase())){
+                alert("Ese nombre de usuario no es válido. Elige un buen nombre");
+            }
+            else {
+                alert(`¡Bienvenido, ${usuario}!`);
+                window.location.href = "Proyecto.html";
+            }
+        });
+
+        const footer = document.querySelector("footer");
+        if(footer){
+            footer.style.display = "none";  
         }
-    });
     });
     </script>
 </body>

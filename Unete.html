@@ -46,7 +46,7 @@
             font-size: 15px;
         }
 
-        input[type="text"] {
+        #correo, #pass {
             width: 100%;
             padding: 10px;
             margin: 5px 0 10px;
@@ -59,7 +59,6 @@
             padding: 10px;
             margin-top: 10px;
             border: none;
-            
             color: rgb(0, 0, 0);
             border-radius: 5px;
             cursor: pointer;
@@ -67,9 +66,8 @@
         }
 
         button:hover {
-            opacity: 0.4;
+            opacity: 0.8;
             background-color: rgb(108, 108, 178);
-
         }
 
         nav button {
@@ -86,7 +84,8 @@
         }
 
         p { margin: 8px 0; }
-        .boxs{
+
+        .boxs {
             padding: 10px;
             margin: 10px auto;
         }
@@ -95,12 +94,11 @@
 <body>
     <header>
         <h1 style="font-size: 25px;">
-            <img src="logo-Abstracto/Logo-Abstracto.jpeg" alt="Logo" style="width:30px; height:30px; vertical-align: middle; margin-right:5px;">DeviantArt
-            </h1>
+            <img src="logo-Abstracto/Logo-Abstracto.jpeg" alt="Logo" style="width:30px; height:30px; vertical-align: middle; margin-right:5px;">
+            DeviantArt
+        </h1>
         <h1>ÚNETE A LA COMUNIDAD ARTÍSTICA MÁS GRANDE DEL MUNDO</h1>
-        <h3>Obtén acceso gratuito a 650 millones de obras de arte.
-             Exhibe, promociona, vende y comparte tu trabajo con
-              más de 100 millones de miembros.</h3>
+        <h3>Obtén acceso gratuito a 650 millones de obras de arte. Exhibe, promociona, vende y comparte tu trabajo con más de 100 millones de miembros.</h3>
     </header>
 
     <main>
@@ -112,46 +110,48 @@
             <button>Continuar con Facebook</button>
         </nav>
 
-        
         <p style="text-align:center;">------------ o ------------</p>
 
         <div class="boxs">
-        <label style="font-weight: bold;">Añade tu correo electrónico</label>
-        <input type="email" name="" id="">
-        <br>
-        <br>
-        <label style="font-weight: bold;">Elije una contraseña</label>
-        <input type="password" name="" id="">
+            <label style="font-weight: bold;">Añade tu correo electrónico</label>
+            <input type="email" name="correo" id="correo" required>
+            <br><br>
+            <label style="font-weight: bold;">Elije una contraseña</label>
+            <input type="password" name="pass" id="pass" required>
         </div>
         <br>
         <p>Mínimo 6 caracteres, números y letras</p>
 
+        <button style="background-color: #38ddbc;" id="Cuenta">Continuar con el correo electrónico</button>
 
-        <button style="background-color: #38ddbc;">Continuar con el correo electronico</button>
+        <p>¿Ya eres miembro? <a href="#">Iniciar sesión</a></p>
 
-        <p>¿Ya eres miembro?<a href="">Iniciar sesión</a></p>
-
-        <p>Al Unirme en DeviantArt, confirmo que he leído y acepto los <a href="#">Términos de servicio</a>,
-        <a href="">la Política de privacidad</a> y recibir correos electrónicos y actualizaciones.</p>
-        
+        <p>Al unirme en DeviantArt, confirmo que he leído y acepto los <a href="#">Términos de servicio</a>,
+        <a href="#">la Política de privacidad</a> y recibir correos electrónicos y actualizaciones.</p>
     </main>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function(){
-        const boton = document.querySelector('button[style*="#38ddbc"]');
-        const correo = document.querySelector('input[type="email"]');
-        const pass = document.querySelector('input[type="password"]');
+        document.addEventListener("DOMContentLoaded", function() {
+            const boton = document.getElementById("Cuenta");
+            const correo = document.getElementById("correo");
+            const pass = document.getElementById("pass");
 
-        boton.addEventListener("click", () => {
-        if(correo.value === "" || pass.value.length < 6){
-            alert("Ingresa un correo válido y una contraseña de al menos 6 caracteres");
-        } else {
-            alert(`¡Cuenta creada con éxito para ${correo.value}!`);
-            
-        }
-        });
-        });
+            boton.addEventListener("click", () => {
+                const correoValido = /^\S+@\S+\.\S+$/.test(correo.value);
+                if(!correoValido){
+                    alert("Ingresa un correo válido");
+                    return;
+                }
 
+                if(pass.value.length < 6){
+                    alert("La contraseña debe tener al menos 6 caracteres");
+                    return;
+                }
+
+                alert(`¡Cuenta creada con éxito para ${correo.value}!`);
+                window.location.href = "Proyecto.html";
+            });
+        });
     </script>
 </body>
 </html>
