@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body{
             background-color: black; 
@@ -44,9 +45,8 @@
         }
         .img{
             display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Columnas flexibles */
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
             gap: 15px; 
-            padding: 20px; 
         }
         div img{
             width: 100%; 
@@ -55,13 +55,66 @@
             border-radius: 10px; 
             cursor: pointer; 
         }
+        main{
+            background-color: rgb(29, 22, 36);
+            display: grid;
+            justify-items: center;
+            font-weight: bold;
+        }
+        .Buscar{
+            padding: 8px;
+            background-color: rgb(76, 27, 182);
+            color: white;
+        }
+        .search{
+            font-size: 24px;
+        }
+        .contenedor{
+            background-color: rgb(23, 23, 23);
+            padding: 10px;
+        }
+        .contenedor button{
+            background-color: rgb(38, 38, 39);
+            color: white;
+            padding: 10px 15px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 6px;
+            border: none;
+            margin-right: 10px;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+        .barralatbaja{
+            padding: 60px;
+        }
+        section {
+            padding: 20px;
+            justify-items: center;
+        }
+        footer{
+            padding: 20px;
+            justify-items: center;
+        }
+        button{
+            background-color: rgb(61, 32, 165);
+            color: white;
+        }
+        .barra3{
+            padding: 30px;
+            background-color: rgb(18, 14, 25);
+        }
+        .barra4{
+            padding: 30px;
+            background-color: rgb(14, 14, 25);
+        }
     </style>
 </head>
 <body>
     <header>
         <nav>
             <h1 style="font-size: 19px;">
-            <img src="logo-Isotipo/Isotipo.jpeg" alt="Logo" style="width:30px; height:30px; vertical-align: middle; margin-right:5px;">DeviantArt
+            <img src="logo-Abstracto/Logo-Abstracto.jpeg" alt="Logo" style="width:30px; height:30px; vertical-align: middle; margin-right:5px;"><a href="Proyecto.html">DeviantArt</a>
             </h1>
 
             <a href="" style="margin-left: auto;">Unirse</a>
@@ -71,13 +124,14 @@
     <main>
         <h1>Crea arte generado por IA con</h1>
         <p>DreamUp</p>
-        <p>DreamUp™ es un generador de imágenes
+        <p style="font-size: 10px; justify-content: center;">DreamUp™ es un generador de imágenes
              que te ayuda a crear impresionantes
               obras de arte de alta calidad en 
               segundos con el poder de la 
               inteligencia artificial.</p>
-        <input type="search" placeholder="Introduzca una solicitud detallada...">
-            <button class="Buscar">Empieza a crear</button>
+        <p> <input type="search" placeholder="Introduzca una solicitud detallada..." class="search">
+            <button class="Buscar">Empieza a crear</button></p>
+       
             <p class="contenedor">
                 <button>Sueña</button>
                 <button>Anime</button>
@@ -93,7 +147,7 @@
                 <button>Arte de pixeles</button>
             </p>
             
-            <p>Crea hasta 30 imágenes GRATIS usando 10 indicaciones por semana.</p>
+            <p style="color: rgb(70, 40, 130);">Crea hasta 30 imágenes GRATIS usando 10 indicaciones por semana.</p>
     </main>
     <section>
         <h2>Conéctate con la comunidad artística de DreamUp AI</h2>
@@ -110,12 +164,19 @@
             <img src="images/creatividad.jpeg" alt="Img5">
             <img src="images/desarrollo.jpeg" alt="Img6">
             <img src="images/imag.jpg" alt="Img7">
-        </div>
-        <button>Explora las creaciones de DreamUp</button>
+            <img src="https://picsum.photos/200/200?random=8" alt="Img8">
+            <img src="https://picsum.photos/200/200?random=9" alt="Img9">
+            <img src="https://picsum.photos/200/200?random=10" alt="Img10">
+            <img src="https://picsum.photos/200/200?random=11" alt="Img11">
+            <img src="https://picsum.photos/200/200?random=12" alt="Img12">
+            </div>
+        <button style="margin-left: 30%;">Explora las creaciones de DreamUp</button>
+        
     </section>
     <footer>
-        <h2>Cómo crear arte con IA</h2>
-        <ol>
+        <div class="barralatbaja">
+            <h2 style="font-weight: bold; justify-items: center;">Cómo crear arte con IA</h2>
+            <ol>
             <li>Escribe tu mensaje</li>
             <p>¡Cuanto más detalles agregues, mejores serán tus resultados!</p>
             <li>Seleccione un estilo visual</li>
@@ -130,6 +191,8 @@
             <p>Comparte o vende tu arte imaginativo de IA con el mundo.</p>
         </ol>
         <button>Empieza gratis</button>
+        </div>
+        
         <div class="barra3">
             <h2>Decide cómo se utiliza tu arte con DreamUp</h2>
             <ul>
@@ -144,7 +207,10 @@
             </ul>
             <button>Empieza gratis</button>
         </div>
-        <h1>Preguntas frecuentes sobre DreamUp</h1>
+
+
+        <div class="barra4">
+            <h2>Preguntas frecuentes sobre DreamUp</h1>
 
         <details>
             <summary>¿Cómo funciona DreamUp?</summary>
@@ -176,8 +242,29 @@
                 Haga clic en el menú de tres puntos de sus favoritos y seleccione "Enviar como desviación".
             </p>
         </details>
+        </div>
+        
 
-        ©2024 DeviantArt Todos los derechos reservados
+        <p style="justify-items: center; font-size: 10px;">©2024 DeviantArt Todos los derechos reservados</p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+        const botones = document.querySelectorAll(".contenedor button");
+
+        botones.forEach(boton => {
+        boton.addEventListener("click", () => {
+            alert(`Has seleccionado el estilo: ${boton.textContent}`);
+        });
+        });
+
+        const botonCrear = document.querySelector(".Buscar");
+        botonCrear.addEventListener("click", () => {
+        const input = document.querySelector(".search");
+        alert(`Generando arte con IA: ${input.value}`);
+        });
+        });
+    </script>
 </body>
 </html>

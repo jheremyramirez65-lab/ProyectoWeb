@@ -91,7 +91,7 @@
 <body>
     <header>
         <h1 style="font-size: 25px;">
-            <img src="logo-Isotipo/Isotipo.jpeg" alt="Logo" style="width:30px; height:30px; vertical-align: middle; margin-right:5px;">DeviantArt
+            <img src="logo-Abstracto/Logo-Abstracto.jpeg" alt="Logo" style="width:30px; height:30px; vertical-align: middle; margin-right:5px;">DeviantArt
             </h1>
         <h1>ÚNETE A LA COMUNIDAD ARTÍSTICA MÁS GRANDE DEL MUNDO</h1>
         <h3>Explora y descubre arte, conviértete en un mejor artista, conéctate con otros a través de pasatiempos mutuos o compra y vende obras: puedes hacerlo todo aquí.</h3>
@@ -130,7 +130,25 @@
 
         <p>Al iniciar sesión en DeviantArt, confirmo que he leído y acepto los <a href="#">Términos de servicio</a>,
         <a href="">la Política de privacidad</a> y recibir correos electrónicos y actualizaciones.</p>
-        <p></p>
+        
     </main>
+    <footer></footer>
+
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function(){
+    const boton = document.querySelector("main button");
+    const input = document.querySelector('input[name="name"]');
+
+    boton.addEventListener("click", function(){
+        if(input.value.trim() === ""){
+            alert("Por favor ingresa tu nombre de usuario");
+        } else {
+            alert(`¡Bienvenido, ${input.value}!`);
+            // Aquí podrías redirigir: window.location.href = "Proyecto.html";
+        }
+    });
+    });
+    </script>
 </body>
 </html>

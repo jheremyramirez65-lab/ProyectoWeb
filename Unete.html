@@ -95,7 +95,7 @@
 <body>
     <header>
         <h1 style="font-size: 25px;">
-            <img src="logo-Isotipo/Isotipo.jpeg" alt="Logo" style="width:30px; height:30px; vertical-align: middle; margin-right:5px;">DeviantArt
+            <img src="logo-Abstracto/Logo-Abstracto.jpeg" alt="Logo" style="width:30px; height:30px; vertical-align: middle; margin-right:5px;">DeviantArt
             </h1>
         <h1>ÚNETE A LA COMUNIDAD ARTÍSTICA MÁS GRANDE DEL MUNDO</h1>
         <h3>Obtén acceso gratuito a 650 millones de obras de arte.
@@ -135,5 +135,23 @@
         <a href="">la Política de privacidad</a> y recibir correos electrónicos y actualizaciones.</p>
         
     </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+        const boton = document.querySelector('button[style*="#38ddbc"]');
+        const correo = document.querySelector('input[type="email"]');
+        const pass = document.querySelector('input[type="password"]');
+
+        boton.addEventListener("click", () => {
+        if(correo.value === "" || pass.value.length < 6){
+            alert("Ingresa un correo válido y una contraseña de al menos 6 caracteres");
+        } else {
+            alert(`¡Cuenta creada con éxito para ${correo.value}!`);
+            
+        }
+        });
+        });
+
+    </script>
 </body>
 </html>
