@@ -88,6 +88,18 @@
         .links a:hover {
             text-decoration: underline;
         }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .success {
+            color: green;
+            font-size: 14px;
+            margin-top: 5px;
+        }
     </style>
 </head>
 
@@ -107,30 +119,35 @@
     <div class="registro-container">
         <h2>Crear Cuenta</h2>
 
-        <form>
+        <form id="formRegistro">
             <div class="form-group">
                 <label>Nombre completo</label>
-                <input type="text" class="form-control" placeholder="Tu nombre completo" required>
+                <input type="text" class="form-control" id="nombre" placeholder="Tu nombre completo" required>
+                <div id="errorNombre" class="error"></div>
             </div>
 
             <div class="form-group">
                 <label>Correo electrónico</label>
-                <input type="email" class="form-control" placeholder="ejemplo@correo.com" required>
+                <input type="email" class="form-control" id="correo" placeholder="ejemplo@correo.com" required>
+                <div id="errorCorreo" class="error"></div>
             </div>
 
             <div class="form-group">
                 <label>Nombre de usuario</label>
-                <input type="text" class="form-control" placeholder="Tu usuario" required>
+                <input type="text" class="form-control" id="usuario" placeholder="Tu usuario" required>
+                <div id="errorUsuario" class="error"></div>
             </div>
 
             <div class="form-group">
                 <label>Contraseña</label>
-                <input type="password" class="form-control" placeholder="••••••••" required>
+                <input type="password" class="form-control" id="password1" placeholder="••••••••" required>
+                <div id="errorPass1" class="error"></div>
             </div>
 
             <div class="form-group">
                 <label>Confirmar contraseña</label>
-                <input type="password" class="form-control" placeholder="••••••••" required>
+                <input type="password" class="form-control" id="password2" placeholder="••••••••" required>
+                <div id="errorPass2" class="error"></div>
             </div>
 
             <button type="submit" class="btn btn-registrar">Registrar</button>
@@ -139,44 +156,92 @@
                 <p>¿Ya tienes cuenta? <a href="acceso.html">Iniciar sesión</a></p>
             </div>
         </form>
+
+        <div id="mensajeRegistro" class="success"></div>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const nombre = document.getElementById("nombre");
-            const correo = document.getElementById("correo");
-            const usuario = document.getElementById("usuario");
-            const pass1 = document.getElementById("password1");
-            const pass2 = document.getElementById("password2");
-            const btnRegistrar = document.getElementById("btnRegistrar");
+            const form = document.getElementById("formRegistro");
             const mensaje = document.getElementById("mensajeRegistro");
 
-            btnRegistrar.addEventListener("click", function (event) {
-                event.preventDefault();
+            form.addEventListener("submit", function (event) {
+                event.preventDefault(); 
 
-                if (
-                    nombre.value.trim() === "" ||
-                    correo.value.trim() === "" ||
-                    usuario.value.trim() === "" ||
-                    pass1.value.trim() === "" ||
-                    pass2.value.trim() === ""
-                ) {
-                    mensaje.style.color = "red";
-                    mensaje.textContent = "Complete todos los campos.";
-                    return;
+                clearErrors();
+
+                const nombre = document.getElementById("nombre").value.trim();
+                const correo = document.getElementById("correo").value.trim();
+                const usuario = document.getElementById("usuario").value.trim();
+                const pass1 = document.getElementById("password1").value.trim();
+                const pass2 = document.getElementById("password2").value.trim();
+
+                try {
+                    let formValido = true;
+
+                    if (!nombre) {
+                        showError("errorNombre", "Este campo es obligatorio");
+                        formValido = false;
+                    } else if (!/^[a-zA-Z\s]+$/.test(nombre)) {
+                        showError("errorNombre", "El nombre completo solo puede contener letras y espacios.");
+                        formValido = false;
+                    }
+
+                    if (!correo || !validateEmail(correo)) {
+                        showError("errorCorreo", "Por favor ingresa un correo válido");
+                        formValido = false;
+                    }
+
+                    if (!usuario || usuario.length < 3 || !/^[a-zA-Z0-9_]+$/.test(usuario)) {
+                        showError("errorUsuario", "El nombre de usuario debe tener al menos 3 caracteres y no puede contener espacios ni caracteres especiales.");
+                        formValido = false;
+                    }
+
+                    if (!pass1 || pass1.length < 6) {
+                        showError("errorPass1", "La contraseña debe tener al menos 6 caracteres");
+                        formValido = false;
+                    }
+
+                    if (pass1 !== pass2) {
+                        showError("errorPass2", "Las contraseñas no coinciden");
+                        formValido = false;
+                    }
+
+                    if (formValido) {
+                        mensaje.textContent = "Registro completado correctamente.";
+                        mensaje.classList.add("success");
+                        mensaje.classList.remove("error");
+
+                        setTimeout(() => {
+                            window.location.href = "acceso.html";
+                        }, 1500); 
+                    }
+
+                } catch (error) {
+                    console.error("Ocurrió un error:", error);
+                    mensaje.textContent = "Hubo un problema con el registro. Por favor, inténtalo nuevamente.";
+                    mensaje.classList.add("error");
+                    mensaje.classList.remove("success");
                 }
-
-                if (pass1.value !== pass2.value) {
-                    mensaje.style.color = "red";
-                    mensaje.textContent = "Las contraseñas no coinciden.";
-                    return;
-                }
-
-                mensaje.style.color = "green";
-                mensaje.textContent = "Registro completado correctamente.";
             });
-        });
 
+            function showError(id, message) {
+                const errorElement = document.getElementById(id);
+                errorElement.textContent = message;
+            }
+
+            function clearErrors() {
+                const errorElements = document.querySelectorAll(".error");
+                errorElements.forEach(element => element.textContent = "");
+                mensaje.textContent = "";
+            }
+
+            function validateEmail(email) {
+                const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                return regex.test(email);
+            }
+        });
     </script>
+
 </body>
 </html>

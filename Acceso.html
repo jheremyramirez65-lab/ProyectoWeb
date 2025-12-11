@@ -87,6 +87,20 @@
         .links a:hover {
             text-decoration: underline;
         }
+
+        #mensajeLogin {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
     </style>
 </head>
 
@@ -106,15 +120,15 @@
     <div class="acceso-container">
         <h2>Acceder</h2>
 
-        <form>
+        <form id="form-login">
             <div class="form-group">
-                <label>Usuario o correo</label>
-                <input type="text" class="form-control" placeholder="Tu nombre o correo">
+                <label for="usuario">Usuario o correo</label>
+                <input type="text" id="usuario" class="form-control" placeholder="Tu nombre o correo" required>
             </div>
 
             <div class="form-group">
-                <label>Contraseña</label>
-                <input type="password" class="form-control" placeholder="••••••••">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" class="form-control" placeholder="••••••••" required>
             </div>
 
             <button type="submit" class="btn btn-acceder">Ingresar</button>
@@ -124,37 +138,45 @@
                 <a href="Unete.html">Crear una cuenta</a>
             </div>
         </form>
+
+        <div id="mensajeLogin"></div>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-    const usuarioInput = document.getElementById("usuario");
-    const passInput = document.getElementById("password");
-    const btnIngresar = document.getElementById("btnIngresar");
-    const mensaje = document.getElementById("mensajeLogin");
+            const formLogin = document.getElementById("form-login");
+            const usuarioInput = document.getElementById("usuario");
+            const passInput = document.getElementById("password");
+            const mensaje = document.getElementById("mensajeLogin");
 
-    btnIngresar.addEventListener("click", function (event) {
-        event.preventDefault();
+            formLogin.addEventListener("submit", function (event) {
+                event.preventDefault();  
 
-        let usuario = usuarioInput.value.trim();
-        let pass = passInput.value.trim();
+                const usuario = usuarioInput.value.trim();
+                const pass = passInput.value.trim();
 
-        if (usuario === "" || pass === "") {
-            mensaje.style.color = "red";
-            mensaje.textContent = "Por favor, complete todos los campos.";
-            return;
-        }
+                if (usuario === "" || pass === "") {
+                    mensaje.classList.add("error");
+                    mensaje.classList.remove("success");
+                    mensaje.textContent = "Por favor, complete todos los campos.";
+                    return;
+                }
 
-        if (usuario === "admin" && pass === "1234") {
-            mensaje.style.color = "green";
-            mensaje.textContent = "Acceso correcto.";
-        } else {
-            mensaje.style.color = "red";
-            mensaje.textContent = "Usuario o contraseña incorrectos.";
-        }
-    });
-});
-
+                if (usuario === "admin" && pass === "1234") {
+                    mensaje.classList.add("success");
+                    mensaje.classList.remove("error");
+                    mensaje.textContent = "Acceso correcto.";
+                    
+                    setTimeout(function () {
+                        window.location.href = "index.html"; // Redirige a la página principal
+                    }, 2000);
+                } else {
+                    mensaje.classList.add("error");
+                    mensaje.classList.remove("success");
+                    mensaje.textContent = "Usuario o contraseña incorrectos.";
+                }
+            });
+        });
     </script>
 
 </body>
