@@ -1,157 +1,184 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DeviantArt - Acceso</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Lumora</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
     <style>
         body {
-            background-image: url("images/fondo.jpeg");
-            background-position: center;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 15px;
-            min-height: 100vh;
+            background: #f5f1fa; /* Fondo suave estilo Lumora */
             font-family: Arial, sans-serif;
-            font-size: 14px;
-            margin-left: 18%;
-            margin-right: 18%;
         }
 
-        header {
+        /* Navbar simple */
+        .navbar {
+            background-color: #7a44aa;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: white !important;
+        }
+
+        .btn-regresar {
+            background-color: #ffffff;
+            color: #7a44aa;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .btn-regresar:hover {
+            background-color: #d9c4e8;
+        }
+
+        /* Tarjeta de registro */
+        .registro-container {
+            max-width: 450px;
+            margin: 60px auto;
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .registro-container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #4b2a70;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="email"], input[type="password"] {
+            border-radius: 12px;
+            border: 1px solid #c7b7d6;
+            padding: 12px;
+            margin-bottom: 15px;
+        }
+
+        input:focus {
+            border-color: #7a44aa;
+            box-shadow: 0 0 5px rgba(122,68,170,0.3);
+        }
+
+        .btn-registrar {
+            width: 100%;
+            background-color: #7a44aa;
+            border-radius: 12px;
+            padding: 12px;
+            font-weight: bold;
             color: white;
-            background-color: rgba(0, 0, 0, 0.85);
-            padding: 30px;
-            width: 40%;
-            border-radius: 10px;
         }
 
-        main {
-            background-color: white;
-            width: 40%;
-            padding: 30px;
-            border-radius: 10px;
+        .btn-registrar:hover {
+            background-color: #693594;
         }
 
-        h1 {
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            font-size: 55px;
+        .links {
+            text-align: center;
+            margin-top: 15px;
         }
 
-        h3 {
-            font-weight: lighter;
-            font-size: 15px;
+        .links a {
+            font-weight: bold;
+            color: #7a44aa;
         }
 
-        #correo, #pass {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0 10px;
-            border-radius: 5px;
-            border: 1px solid #c2c2c2;
-        }
-
-        button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border: none;
-            color: rgb(0, 0, 0);
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 15px;
-        }
-
-        button:hover {
-            opacity: 0.8;
-            background-color: rgb(108, 108, 178);
-        }
-
-        nav button {
-            margin: 8px 0;
-            border-color: #333;
-        }
-
-        a {
-            color: #333;
-        }
-
-        a:hover {
+        .links a:hover {
             text-decoration: underline;
-        }
-
-        p { margin: 8px 0; }
-
-        .boxs {
-            padding: 10px;
-            margin: 10px auto;
         }
     </style>
 </head>
+
 <body>
-    <header>
-        <h1 style="font-size: 25px;">
-            <img src="logo-Abstracto/Logo-Abstracto.jpeg" alt="Logo" style="width:31px; height:31px; vertical-align: middle; margin-right:5px;">
-            DeviantArt
-        </h1>
-        <h1>ÚNETE A LA COMUNIDAD ARTÍSTICA MÁS GRANDE DEL MUNDO</h1>
-        <h3>Obtén acceso gratuito a 650 millones de obras de arte. Exhibe, promociona, vende y comparte tu trabajo con más de 100 millones de miembros.</h3>
-    </header>
 
-    <main>
-        <h2 style="font-weight: bold; font-size: 30px;">Únete a DeviantArt</h2>
-        <br>
-        <nav>
-            <button>Continuar con Google</button>
-            <button>Continuar con Apple</button>
-            <button>Continuar con Facebook</button>
-        </nav>
+    <!-- NAVBAR SIMPLE -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">Lumora</a>
 
-        <p style="text-align:center;">------------ o ------------</p>
-
-        <div class="boxs">
-            <label style="font-weight: bold;">Añade tu correo electrónico</label>
-            <input type="email" name="correo" id="correo" required>
-            <br><br>
-            <label style="font-weight: bold;">Elije una contraseña</label>
-            <input type="password" name="pass" id="pass" required>
+        <div class="ml-auto">
+            <a class="btn btn-regresar" href="index.html">Regresar</a>
         </div>
-        <br>
-        <p>Mínimo 6 caracteres, números y letras</p>
+    </nav>
 
-        <button style="background-color: #38ddbc;" id="Cuenta">Continuar con el correo electrónico</button>
+    <!-- FORMULARIO DE REGISTRO -->
+    <div class="registro-container">
+        <h2>Crear Cuenta</h2>
 
-        <p>¿Ya eres miembro? <a href="#">Iniciar sesión</a></p>
+        <form>
+            <div class="form-group">
+                <label>Nombre completo</label>
+                <input type="text" class="form-control" placeholder="Tu nombre completo" required>
+            </div>
 
-        <p>Al unirme en DeviantArt, confirmo que he leído y acepto los <a href="#">Términos de servicio</a>,
-        <a href="#">la Política de privacidad</a> y recibir correos electrónicos y actualizaciones.</p>
-    </main>
+            <div class="form-group">
+                <label>Correo electrónico</label>
+                <input type="email" class="form-control" placeholder="ejemplo@correo.com" required>
+            </div>
+
+            <div class="form-group">
+                <label>Nombre de usuario</label>
+                <input type="text" class="form-control" placeholder="Tu usuario" required>
+            </div>
+
+            <div class="form-group">
+                <label>Contraseña</label>
+                <input type="password" class="form-control" placeholder="••••••••" required>
+            </div>
+
+            <div class="form-group">
+                <label>Confirmar contraseña</label>
+                <input type="password" class="form-control" placeholder="••••••••" required>
+            </div>
+
+            <button type="submit" class="btn btn-registrar">Registrar</button>
+
+            <div class="links">
+                <p>¿Ya tienes cuenta? <a href="acceso.html">Iniciar sesión</a></p>
+            </div>
+        </form>
+    </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const boton = document.getElementById("Cuenta");
+        document.addEventListener("DOMContentLoaded", function () {
+            const nombre = document.getElementById("nombre");
             const correo = document.getElementById("correo");
-            const pass = document.getElementById("pass");
+            const usuario = document.getElementById("usuario");
+            const pass1 = document.getElementById("password1");
+            const pass2 = document.getElementById("password2");
+            const btnRegistrar = document.getElementById("btnRegistrar");
+            const mensaje = document.getElementById("mensajeRegistro");
 
-            boton.addEventListener("click", () => {
-                const correoValido = /^\S+@\S+\.\S+$/.test(correo.value);
-                if(!correoValido){
-                    alert("Ingresa un correo válido");
+            btnRegistrar.addEventListener("click", function (event) {
+                event.preventDefault();
+
+                if (
+                    nombre.value.trim() === "" ||
+                    correo.value.trim() === "" ||
+                    usuario.value.trim() === "" ||
+                    pass1.value.trim() === "" ||
+                    pass2.value.trim() === ""
+                ) {
+                    mensaje.style.color = "red";
+                    mensaje.textContent = "Complete todos los campos.";
                     return;
                 }
 
-                if(pass.value.length < 6){
-                    alert("La contraseña debe tener al menos 6 caracteres");
+                if (pass1.value !== pass2.value) {
+                    mensaje.style.color = "red";
+                    mensaje.textContent = "Las contraseñas no coinciden.";
                     return;
                 }
 
-                alert(`¡Cuenta creada con éxito para ${correo.value}!`);
-                window.location.href = "index.html";
+                mensaje.style.color = "green";
+                mensaje.textContent = "Registro completado correctamente.";
             });
         });
+
     </script>
 </body>
 </html>

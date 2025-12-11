@@ -1,239 +1,421 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DeviantArt</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lumora - Galería</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
         body {
-            background-color: black;
+            background-color: #fbfbfd;
             font-family: Arial, Helvetica, sans-serif;
+            color: #0b3140;
+            margin: 0;
         }
 
-        *::selection {
-            background-color: rgb(40, 181, 134);
-        }
+        *::selection { background-color: rgb(180, 123, 204); }
 
-        .Barra {
-            background-color: rgb(36, 36, 52);
+        .barra {
+            background-color: rgb(58, 180, 221);
             font-size: 24px;
-            color: white;
             padding: 22px;
             font-weight: bolder;
+            color: rgb(2, 58, 84);
+            margin: 0;
+        }
+
+        .barraCat {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 0 20px;
+        }
+
+        .flecha {
+            background: #e3e3e3;
+            border: none;
+            padding: 8px 12px;
+            font-size: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .flecha:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
         }
 
         .categorias {
             display: flex;
-            background-color: rgb(23, 23, 23);
-            padding: 10px;
             overflow-x: auto;
+            gap: 10px;
+            padding: 12px;
+            flex: 1;
+            scrollbar-width: none;
         }
 
+        .categorias::-webkit-scrollbar { display: none; }
+
         .categorias button {
-            background-color: rgb(38, 38, 39);
-            color: white;
-            padding: 10px 15px;
-            font-size: 12px;
+            flex-shrink: 0;
+            padding: 10px 16px;
+            font-size: 13px;
             font-weight: bold;
-            border-radius: 6px;
             border: none;
-            margin-right: 10px;
-            white-space: nowrap;
+            border-radius: 20px;
+            background: #f1f1f1;
             cursor: pointer;
+            transition: 0.2s;
         }
 
         .categorias button:hover {
-            background-color: rgb(55, 55, 56);
+            background-color: #b466f0;
+            color: white;
         }
 
-        section {
+        .categorias button.activo {
+            background-color: #9333ea;
+            color: white;
+        }
+
+        .galeria {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 15px;
             padding: 20px;
         }
 
-        section img {
-            width: 100%;
-            height: 200px;
-            border-radius: 10px;
-            cursor: pointer;
+        .tarjeta {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #eee;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: transform 0.3s;
         }
 
-        section img:hover {
-            transform: scale(1.05);
+        .tarjeta img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
         }
 
-        footer button {
-            padding: 10px 20px;
-            font-size: 12px;
-            font-weight: bold;
-            border: none;
+        .tarjeta:hover { transform: scale(1.03); }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            padding: 10px;
+            opacity: 0;
+            transition: 0.22s;
         }
 
-        
+        .tarjeta:hover .overlay { opacity: 1; }
+
+        .corazon {
+            cursor: pointer;
+            font-size: 28px;
+            user-select: none;
+        }
+
+        .corazon input { display: none; }
+        .corazon span {
+            color: white;
+            text-shadow: 0 0 8px black;
+            transition: 0.2s;
+        }
+        .corazon input:checked + span { color: red; }
+
+        .busqueda {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .busqueda input {
+            border-radius: 8px;
+            border: 1px solid #c7b7d6;
+            padding: 8px 12px;
+        }
+
+        .busqueda button {
+            border-radius: 8px;
+            padding: 8px 12px;
+            background:#7a44aa;
+            color:white;
+            border:none;
+        }
 
     </style>
 </head>
-
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
-        <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+        <div class="contenedor">
 
             <a href="index.html" class="navbar-brand d-flex align-items-center text-white fw-bold">
-                <img src="logo-Abstracto/Logo-Abstracto.jpeg" 
-                     alt="Logo"
-                     style="width:30px; height:30px; margin-right:5px; border-radius: 5px;">
-                DeviantArt
+                <img src="logo-Abstracto/Logo-Abstracto.jpeg" alt="Logo" style="width:30px; height:30px; margin-right:8px; border-radius:5px;">
+                <span style="color: rgb(2, 58, 84); font-weight:700;">Lumora</span>
             </a>
-            
-                <div class="mx-lg-3 my-2 my-lg-0 search-box">
-                    <input type="search" 
-                           placeholder="Buscar" 
-                           class="form-control text-white"
-                           id="inBuscar"
-                           style="background-color:rgb(40, 40, 40); border: 1px solid rgb(60, 60, 60);">
-                    <button id="Buscar" style="background-color: black; color: white; border: none;">Buscar</button>
-                </div>
 
-            <button class="navbar-toggler" 
-                    type="button" 
-                    data-bs-toggle="collapse" 
-                    data-bs-target="#navbarContent">
+            <div class="busqueda ms-3 me-auto">
+                <input type="search" id="buscar" placeholder="Buscar">
+            </div>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarContent">
-
-                
-
-                <ul class="navbar-nav ms-lg-auto align-items-lg-center">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link text-secondary">Hogar</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="Comercio.html" class="nav-link text-secondary">Comercio</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="DreamUp.html" class="nav-link text-primary">Arte con IA de Dream Up</a>
-                    </li>
-
-                    <li class="nav-item mt-2 mt-lg-0">
-                        <button class="btn btn-success">+ Entregar</button>
-                    </li>
+            <div class="collapse navbar-collapse" id="menuNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a href="Comercio.html" class="nav-link text-secondary">Compra</a></li>
+                    <li class="nav-item"><a href="DreamUp.html" class="nav-link text-primary">Arte IA</a></li>
+                    <li class="nav-item"><a href="Acceso.html" class="nav-link text-primary">Acceso</a></li>
+                    <li class="nav-item"><a href="Unete.html" class="nav-link text-primary">Regístrate</a></li>
                 </ul>
-
             </div>
         </div>
     </nav>
 
-    <p class="Barra">Hogar</p>
+    <p class="barra">Hogar</p>
 
-    <div class="categorias" id="categorias">
-        <button>Todo</button>
-        <button>Cibernetico</button>
-        <button>Arte de IA</button>
-        <button>Arte digital</button>
-        <button>Arte de fan</button>
-        <button>Fotografia</button>
-        <button>Fantasia</button>
-        <button>Anime y manga</button>
-        <button>Cosplay</button>
-        <button>Adoptables</button>
-        <button>Diseño de personajes</button>
-        <button>Historietas</button>
-        <button>Arte conceptual</button>
-        <button>Arte de juego</button>
-        <button>Ciencia ficcion</button>
-        <button>Superheroes</button>
-        <button>Arte tradicional</button>
-        <button>Arte 3D</button>
+    <div class="barraCat">
+        <button id="izquierda" class="flecha">‹</button>
+        <div class="categorias" id="listaCategorias">
+            <button>Todo</button>
+            <button>Cibernetico</button>
+            <button>Arte IA</button>
+            <button>Arte Digital</button>
+            <button>Arte Fan</button>
+            <button>Fotografia</button>
+            <button>Fantasia</button>
+            <button>Anime</button>
+            <button>Cosplay</button>
+            <button>Adoptables</button>
+        </div>
+        <button id="derecha" class="flecha">›</button>
     </div>
 
-    <section>
-        <img src="https://picsum.photos/200/200?random=1" alt="Img1">
-        <img src="https://picsum.photos/200/200?random=2" alt="Img2">
-        <img src="https://picsum.photos/200/200?random=3" alt="Img3">
-        <img src="https://picsum.photos/200/200?random=4" alt="Img4">
-        <img src="https://picsum.photos/200/200?random=5" alt="Img5">
-        <img src="https://picsum.photos/200/200?random=6" alt="Img6">
-        <img src="https://picsum.photos/200/200?random=7" alt="Img7">
-        <img src="https://picsum.photos/200/200?random=8" alt="Img8">
-        <img src="https://picsum.photos/200/200?random=9" alt="Img9">
-        <img src="https://picsum.photos/200/200?random=10" alt="Img10">
-        <img src="https://picsum.photos/200/200?random=11" alt="Img11">
-        <img src="https://picsum.photos/200/200?random=12" alt="Img12">
-        <img src="https://picsum.photos/200/200?random=13" alt="Img13">
-        <img src="https://picsum.photos/200/200?random=14" alt="Img14">
-        <img src="https://picsum.photos/200/200?random=15" alt="Img15">
-        <img src="https://picsum.photos/200/200?random=16" alt="Img16">
-        <img src="https://picsum.photos/200/200?random=17" alt="Img17">
-        <img src="https://picsum.photos/200/200?random=18" alt="Img18">
-        <img src="https://picsum.photos/200/200?random=19" alt="Img19">
-        <img src="https://picsum.photos/200/200?random=20" alt="Img20">
+    <section class="galeria" id="galeria">
+        <div class="tarjeta" data-cat="Anime">
+            <img src="https://picsum.photos/400/600?random=1" alt="Anime 1">
+                <div class="overlay">
+                    <label class="corazon">
+                    <input type="checkbox">
+                    <span>❤</span>
+                    </label>
+                </div>
+        </div>
+        <div class="tarjeta" data-cat="Arte Digital">
+            <img src="https://picsum.photos/400/500?random=2" alt="Arte Digital 1">
+                <div class="overlay">
+                    <label class="corazon">
+                    <input type="checkbox">
+                    <span>❤</span>
+                    </label>
+                </div>
+        </div>
+        <div class="tarjeta" data-cat="Cibernetico">
+            <img src="https://picsum.photos/400/450?random=3" alt="Cibernetico 1">
+                <div class="overlay">
+                    <label class="corazon">
+                    <input type="checkbox">
+                    <span>❤</span>
+                    </label>
+                </div>
+        </div>
+        <div class="tarjeta" data-cat="Anime">
+            <img src="https://picsum.photos/400/600?random=4" alt="Anime 1">
+                <div class="overlay">
+                    <label class="corazon">
+                    <input type="checkbox">
+                    <span>❤</span>
+                    </label>
+                </div>
+        </div>
+        <div class="tarjeta" data-cat="Arte Digital">
+            <img src="https://picsum.photos/400/500?random=5" alt="Arte Digital 1">
+                <div class="overlay">
+                    <label class="corazon">
+                    <input type="checkbox">
+                    <span>❤</span>
+                    </label>
+                </div>
+        </div>
+        <div class="tarjeta" data-cat="Cibernetico">
+            <img src="https://picsum.photos/400/450?random=6" alt="Cibernetico 1">
+                <div class="overlay">
+                    <label class="corazon">
+                    <input type="checkbox">
+                    <span>❤</span>
+                    </label>
+                </div>
+        </div>
+        <div class="tarjeta" data-cat="Anime">
+            <img src="https://picsum.photos/400/600?random=7" alt="Anime 1">
+                <div class="overlay">
+                    <label class="corazon">
+                    <input type="checkbox">
+                    <span>❤</span>
+                    </label>
+                </div>
+        </div>
+        <div class="tarjeta" data-cat="Arte Digital">
+            <img src="https://picsum.photos/400/500?random=8" alt="Arte Digital 1">
+                <div class="overlay">
+                    <label class="corazon">
+                    <input type="checkbox">
+                    <span>❤</span>
+                    </label>
+                </div>
+        </div>
+        <div class="tarjeta" data-cat="Cibernetico">
+            <img src="https://picsum.photos/400/450?random=9" alt="Cibernetico 1">
+                <div class="overlay">
+                    <label class="corazon">
+                    <input type="checkbox">
+                    <span>❤</span>
+                    </label>
+                </div>
+        </div>
+        <div class="tarjeta" data-cat="Anime">
+            <img src="https://picsum.photos/400/600?random=10" alt="Anime 1">
+                <div class="overlay">
+                    <label class="corazon">
+                    <input type="checkbox">
+                    <span>❤</span>
+                    </label>
+                </div>
+        </div>
+        <div class="tarjeta" data-cat="Arte Digital">
+            <img src="https://picsum.photos/400/500?random=11" alt="Arte Digital 1">
+                <div class="overlay">
+                    <label class="corazon">
+                    <input type="checkbox">
+                    <span>❤</span>
+                    </label>
+                </div>
+        </div>
+        <div class="tarjeta" data-cat="Cibernetico">
+            <img src="https://picsum.photos/400/450?random=12" alt="Cibernetico ">
+                <div class="overlay">
+                    <label class="corazon">
+                    <input type="checkbox">
+                    <span>❤</span>
+                    </label>
+                </div>
+        </div>
+        <div class="tarjeta" data-cat="Anime">
+            <img src="https://picsum.photos/400/600?random=13" alt="Anime 1">
+                <div class="overlay">
+                    <label class="corazon">
+                    <input type="checkbox">
+                    <span>❤</span>
+                    </label>
+                </div>
+        </div>
+        <div class="tarjeta" data-cat="Arte Digital">
+            <img src="https://picsum.photos/400/500?random=14" alt="Arte Digital 1">
+                <div class="overlay">
+                    <label class="corazon">
+                    <input type="checkbox">
+                    <span>❤</span>
+                    </label>
+                </div>
+        </div>
+        <div class="tarjeta" data-cat="Cibernetico">
+            <img src="https://picsum.photos/400/450?random=15" alt="Cibernetico 1">
+                <div class="overlay">
+                    <label class="corazon">
+                    <input type="checkbox">
+                    <span>❤</span>
+                    </label>
+                </div>
+        </div>
+        <div class="tarjeta" data-cat="Anime">
+            <img src="https://picsum.photos/400/600?random=16" alt="Anime 1">
+                <div class="overlay">
+                    <label class="corazon">
+                    <input type="checkbox">
+                    <span>❤</span>
+                    </label>
+                </div>
+        </div>
+        <div class="tarjeta" data-cat="Arte Digital">
+            <img src="https://picsum.photos/400/500?random=17" alt="Arte Digital 1">
+                <div class="overlay">
+                    <label class="corazon">
+                    <input type="checkbox">
+                    <span>❤</span>
+                    </label>
+                </div>
+        </div>
+        <div class="tarjeta" data-cat="Cibernetico">
+            <img src="https://picsum.photos/400/450?random=18" alt="Cibernetico 1">
+                <div class="overlay">
+                    <label class="corazon">
+                    <input type="checkbox">
+                    <span>❤</span>
+                    </label>
+                </div>
+        </div>
+        
     </section>
-
-    <footer class="bg-light sticky-bottom text-dark text-center p-3 mt-4">
-        <p class="mb-3">Únase a la comunidad de arte más grande del mundo y obtenga recomendaciones personalizadas.</p>
-
-        <a href="Acceso.html">
-            <button class="btn btn-outline-dark me-2">Acceso</button>
-        </a>
-
-        <a href="Unete.html">
-            <button class="btn btn-dark" id="btnfot">Unirse</button>
-        </a>
-    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-        const contenedor = document.getElementById("categorias");
-        const categorias = contenedor.getElementsByTagName("button"); 
+        document.addEventListener("DOMContentLoaded", () => {
+            const lista = document.getElementById("listaCategorias");
+            const btnIzq = document.getElementById("izquierda");
+            const btnDer = document.getElementById("derecha");
+            const botones = lista.querySelectorAll("button");
+            const galeria = document.getElementById("galeria");
+            const buscar = document.getElementById("buscar");
+            const PASO = 200;
 
-        for(let i = 0; i < categorias.length; i++){
-        categorias[i].addEventListener("click", function() {
-            for(let j = 0; j < categorias.length; j++){
-                categorias[j].style.backgroundColor = "rgb(38,38,39)";
+            function actualizarFlechas() {
+                btnIzq.disabled = lista.scrollLeft <= 5;
+                btnDer.disabled = lista.scrollLeft >= (lista.scrollWidth - lista.clientWidth - 5);
             }
-            categorias[i].style.backgroundColor = "rgb(55,55,56)";
-            alert("Categoría seleccionada: " + categorias[i].textContent);
+            actualizarFlechas();
+
+            btnDer.onclick = () => { lista.scrollBy({ left: PASO, behavior: 'smooth' }); setTimeout(actualizarFlechas, 300); };
+            btnIzq.onclick = () => { lista.scrollBy({ left: -PASO, behavior: 'smooth' }); setTimeout(actualizarFlechas, 300); };
+            lista.addEventListener("scroll", actualizarFlechas);
+
+            function filtrar(cat) {
+                const items = galeria.querySelectorAll(".tarjeta");
+                items.forEach(i => {
+                    const categoria = i.getAttribute("data-cat");
+                    i.style.display = (cat === "Todo" || cat === categoria) ? "block" : "none";
+                });
+            }
+
+            botones.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    botones.forEach(b => b.classList.remove("activo"));
+                    btn.classList.add("activo");
+                    filtrar(btn.textContent.trim());
+                });
             });
-        }
 
-        const boton = document.getElementById("Buscar"); 
-        const inputBuscar = document.getElementById("inBuscar"); 
-
-        boton.addEventListener("click", function() {
-        const valor = inputBuscar.value.trim();
-        if(valor === ""){
-            alert("Por favor ingresa algo para buscar");
-            return;
-        }
-
-        const elementos = ["Arte", "Dibujo", "Pintura", "Escultura"];
-        let encontrado = false;
-
-        for(let i = 0; i < elementos.length; i++){
-            if(elementos[i].toLowerCase().includes(valor.toLowerCase())){
-                encontrado = true;
-                break;
-            }
-        }
-
-        if(encontrado){
-            alert("Resultados encontrados para: " + valor);
-        } else {
-            alert("No se encontró nada");
-        }
+            buscar.addEventListener("keydown", e => {
+                if(e.key === "Enter") {
+                    e.preventDefault();
+                    const texto = buscar.value.trim().toLowerCase();
+                    const items = galeria.querySelectorAll(".tarjeta");
+                    items.forEach(i => {
+                        const categoria = i.getAttribute("data-cat").toLowerCase();
+                        i.style.display = categoria.includes(texto) ? "block" : "none";
+                    });
+                }
             });
         });
     </script>

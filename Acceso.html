@@ -1,158 +1,158 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DeviantArt - Acceso</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
     <style>
         body {
-            background-image: url("images/fondo.jpeg");
-            background-position: center;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 15px;
-            min-height: 100vh;
+            background: #f5f1fa; 
             font-family: Arial, sans-serif;
-            font-size: 14px;
-            margin-left: 18%;
-            margin-right: 18%;
         }
 
-        header {
+        .navbar {
+            background-color: #7a44aa;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: white !important;
+        }
+
+        .btn-regresar {
+            background-color: #ffffff;
+            color: #7a44aa;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .btn-regresar:hover {
+            background-color: #d9c4e8;
+        }
+
+        .acceso-container {
+            max-width: 420px;
+            margin: 60px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .acceso-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #4b2a70;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="password"] {
+            border-radius: 12px;
+            border: 1px solid #c7b7d6;
+            padding: 12px;
+        }
+
+        input:focus {
+            border-color: #7a44aa;
+            box-shadow: 0 0 5px rgba(122,68,170,0.3);
+        }
+
+        .btn-acceder {
+            width: 100%;
+            background-color: #7a44aa;
+            border-radius: 12px;
+            padding: 12px;
+            font-weight: bold;
             color: white;
-            background-color: rgba(0, 0, 0, 0.85);
-            padding: 30px;
-            width: 70%;
-            border-radius: 10px;
         }
 
-        main {
-            background-color: white;
-            width: 60%;
-            padding: 30px;
-            border-radius: 10px;
+        .btn-acceder:hover {
+            background-color: #693594;
         }
 
-        h1 {
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            font-size: 55px;
+        .links {
+            text-align: center;
+            margin-top: 15px;
         }
 
-        h3 {
-            font-weight: lighter;
-            font-size: 15px;
+        .links a {
+            font-weight: bold;
+            color: #7a44aa;
         }
 
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0 10px;
-            border-radius: 5px;
-            border: 1px solid #aaa;
+        .links a:hover {
+            text-decoration: underline;
         }
-
-        button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border: none;
-            color: rgb(0, 0, 0);
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 15px;
-        }
-
-        button:hover {
-            opacity: 0.4;
-            background-color: rgb(108, 108, 178);
-        }
-
-        nav button {
-            margin: 8px 0;
-            border-color: #333;
-        }
-
-        a { color: #333; }
-        a:hover { text-decoration: underline; }
-
-        p { margin: 8px 0; }
     </style>
 </head>
+
 <body>
-    <header>
-        <h1 style="font-size: 25px;">
-            <img src="logo-Abstracto/Logo-Abstracto.jpeg" alt="Logo" style="width:30px; height:30px; vertical-align: middle; margin-right:5px;">DeviantArt
-        </h1>
-        <h1>ÚNETE A LA COMUNIDAD ARTÍSTICA MÁS GRANDE DEL MUNDO</h1>
-        <h3>Explora y descubre arte, conviértete en un mejor artista, conéctate con otros a través de pasatiempos mutuos o compra y vende obras: puedes hacerlo todo aquí.</h3>
-        <h3>ARTE POR</h3>
-        <a href="#">ekud</a>
-    </header>
 
-    <main>
-        <h2 style="font-weight: bold; font-size: 30px;">Acceso</h2>
-        <br><br><br>
-        <label style="font-weight: bold;">Nombre de usuario</label>
-        <input type="text" name="name" id="inputUsuario" />
-        <br><br><br>
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">Lumora</a>
 
-        <label>
-            <input type="checkbox" /> Mantenme conectado
-        </label>
+        <div class="ml-auto">
+            <a class="btn btn-regresar" href="index.html">Regresar</a>
+        </div>
+    </nav>
 
-        <p><a href="#">¿Olvidó su nombre de usuario o contraseña?</a></p>
+    <div class="acceso-container">
+        <h2>Acceder</h2>
 
-        <button style="background-color: #38ddbc;" id="btnAcceso">Próximo</button>
+        <form>
+            <div class="form-group">
+                <label>Usuario o correo</label>
+                <input type="text" class="form-control" placeholder="Tu nombre o correo">
+            </div>
 
-        <p style="text-align:center;">------------ o ------------</p>
+            <div class="form-group">
+                <label>Contraseña</label>
+                <input type="password" class="form-control" placeholder="••••••••">
+            </div>
 
-        <nav>
-            <button>Continuar con Google</button>
-            <button>Continuar con Apple</button>
-            <button>Continuar con Facebook</button>
-        </nav>
+            <button type="submit" class="btn btn-acceder">Ingresar</button>
 
-        <p>Conviértete en un Deviant. Únete a <a href="">DeviantArt</a></p>
-
-        <p>Al iniciar sesión en DeviantArt, confirmo que he leído y acepto los <a href="#">Términos de servicio</a>,
-        <a href="#">la Política de privacidad</a> y recibir correos electrónicos y actualizaciones.</p>
-    </main>
-    <footer></footer>
+            <div class="links">
+                <a href="#">¿Olvidaste tu contraseña?</a><br>
+                <a href="register.html">Crear una cuenta</a>
+            </div>
+        </form>
+    </div>
 
     <script>
-    document.addEventListener("DOMContentLoaded", function(){
-        const boton = document.getElementById("btnAcceso");
-        const input = document.getElementById("inputUsuario");
+        document.addEventListener("DOMContentLoaded", function () {
+    const usuarioInput = document.getElementById("usuario");
+    const passInput = document.getElementById("password");
+    const btnIngresar = document.getElementById("btnIngresar");
+    const mensaje = document.getElementById("mensajeLogin");
 
-        const nombresProhibidos = ["admin", "root", "usuario", "test", "inapropiado"];
+    btnIngresar.addEventListener("click", function (event) {
+        event.preventDefault();
 
-        boton.addEventListener("click", function(){
-            const usuario = input.value.trim();
-            const regex = /^[A-Za-z]{5,8}$/;
+        let usuario = usuarioInput.value.trim();
+        let pass = passInput.value.trim();
 
-            if(usuario === ""){
-                alert("Por favor ingresa tu nombre de usuario");
-            }
-            else if(!regex.test(usuario)){
-                alert("El nombre de usuario debe tener solo letras y máximo 8 caracteres");
-            }
-            else if(nombresProhibidos.includes(usuario.toLowerCase())){
-                alert("Ese nombre de usuario no es válido. Elige un buen nombre");
-            }
-            else {
-                alert(`¡Bienvenido, ${usuario}!`);
-                window.location.href = "index.html";
-            }
-        });
+        if (usuario === "" || pass === "") {
+            mensaje.style.color = "red";
+            mensaje.textContent = "Por favor, complete todos los campos.";
+            return;
+        }
 
-        const footer = document.querySelector("footer");
-        if(footer){
-            footer.style.display = "none";  
+        if (usuario === "admin" && pass === "1234") {
+            mensaje.style.color = "green";
+            mensaje.textContent = "Acceso correcto.";
+        } else {
+            mensaje.style.color = "red";
+            mensaje.textContent = "Usuario o contraseña incorrectos.";
         }
     });
+});
+
     </script>
+
 </body>
 </html>
